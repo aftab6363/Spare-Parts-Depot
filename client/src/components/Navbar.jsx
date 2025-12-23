@@ -34,6 +34,9 @@ const Navbar = () => {
                         <Link to="/" className="text-gray-300 hover:text-white transition">
                             Home
                         </Link>
+                        <Link to="/inventory" className="text-gray-300 hover:text-white transition">
+                            Inventory
+                        </Link>
                         {user ? (
                             <>
                                 <Link to="/dashboard" className="text-gray-300 hover:text-white transition">
@@ -105,6 +108,9 @@ const Navbar = () => {
                         <div className="px-4 pt-2 pb-4 space-y-3 flex flex-col">
                             <Link to="/" className="text-gray-300 hover:text-white py-2 block" onClick={closeMenu}>
                                 Home
+                            </Link>
+                            <Link to="/inventory" className="text-gray-300 hover:text-white py-2 block" onClick={closeMenu}>
+                                Inventory
                             </Link>
                             {user ? (
                                 <>
