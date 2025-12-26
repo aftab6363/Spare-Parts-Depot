@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report - Spare Parts Depot</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --section-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+        }
+
+        .meta-info {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #374151;
+            margin-top: 25px;
+        }
+
+        p,
+        li {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .section-box {
+            background: var(--section-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        code {
+            background-color: #e5e7eb;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .schema-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .screenshot-container {
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .screenshot-placeholder {
+            background: #f9fafb;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            border: 2px dashed #d1d5db;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--section-bg);
+            font-weight: 600;
+        }
+
+        .toc {
+            background-color: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Spare Parts Depot</h1>
+            <div class="subtitle">A Next-Generation E-Commerce Solution for Automotive Components</div>
+
+            <div class="meta-info">
+                <p><strong>Submitted By:</strong> Aftab Hussain</p>
+                <p><strong>Roll No:</strong> 23014119-025</p>
+                <p><strong>Version:</strong> 2.0 (Premium Release)</p>
+                <p><strong>Date:</strong> December 2025</p>
+            </div>
+        </header>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#executive-summary">1. Executive Summary</a></li>
+                <li><a href="#introduction">2. Introduction</a></li>
+                <li><a href="#system-analysis">3. System Analysis</a></li>
+                <li><a href="#system-architecture">4. System Architecture</a></li>
+                <li><a href="#database-design">5. Database Design</a></li>
+                <li><a href="#implementation">6. Key Implementation Details</a></li>
+                <li><a href="#screenshots">7. Application Screenshots</a></li>
+                <li><a href="#conclusion">8. Conclusion</a></li>
+            </ul>
+        </div>
+
+        <section id="executive-summary">
+            <h2>1. Executive Summary</h2>
+            <div class="section-box">
+                <p>The "Spare Parts Depot" project represents a state-of-the-art web application designed to modernize
+                    the procurement of automotive spare parts. In an industry often plagued by outdated catalogs and
+                    poor inventory visibility, this platform offers a streamlined, visually immersive, and secure
+                    digital marketplace.</p>
+                <p>Built on the robust <strong>MERN Stack (MongoDB, Express.js, React, Node.js)</strong>, the system
+                    integrates advanced inventory filtering, secure user authentication, and a responsive,
+                    "glassmorphism-inspired" user interface. The project successfully demonstrates the application of
+                    full-stack engineering principles, data security best practices, and modern frontend aesthetics to
+                    solve real-world logistical challenges.</p>
+            </div>
+        </section>
+
+        <section id="introduction">
+            <h2>2. Introduction</h2>
+
+            <h3>2.1 Background</h3>
+            <p>The global automotive aftermarket is a multi-billion dollar industry. However, finding specific
+                parts—such as a "Stage 2 Clutch for a 2020 Mustang"—can be frustrating due to fragmented supply chains
+                and poor digital presence of local retailers.</p>
+
+            <h3>2.2 Problem Statement</h3>
+            <p>Customers face three primary challenges:</p>
+            <ul>
+                <li><strong>Search Friction:</strong> Difficulty finding parts by specific model numbers.</li>
+                <li><strong>Trust:</strong> Lack of clear visuals or detailed specifications online.</li>
+                <li><strong>User Experience:</strong> Most existing sites use antiquated, clunky interfaces that perform
+                    poorly on mobile devices.</li>
+            </ul>
+
+            <h3>2.3 Proposed Solution</h3>
+            <p>Spare Parts Depot addresses these issues by providing:</p>
+            <ul>
+                <li><strong>Precision Search:</strong> A keyword-driven engine that indexes Brand, Category, and Model
+                    Number.</li>
+                <li><strong>Visual Assurance:</strong> High-resolution, zoomable product imagery for every SKU.</li>
+                <li><strong>VIP User Experience:</strong> A high-performance Single Page Application (SPA) with no page
+                    reloads, instant filtering, and premium animations.</li>
+            </ul>
+        </section>
+
+        <section id="system-analysis">
+            <h2>3. System Analysis</h2>
+
+            <h3>3.1 Functional Requirements</h3>
+            <ul>
+                <li><strong>Registration:</strong> Users must be able to create accounts with email validation.</li>
+                <li><strong>Authentication:</strong> System must use secure tokens (JWT) for session management.</li>
+                <li><strong>Product Discovery:</strong> Users can filter by category (Engine, Brakes, etc.) and sort by
+                    price.</li>
+                <li><strong>Cart Persistence:</strong> Cart contents should persist across page navigations.</li>
+                <li><strong>Administrative Control:</strong> Admins must be able to edit stock levels and prices in
+                    real-time.</li>
+            </ul>
+
+            <h3>3.2 Tech Stack Selection</h3>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Technology</th>
+                    <th>Reasoning</th>
+                </tr>
+                <tr>
+                    <td>Frontend</td>
+                    <td>React.js (Vite)</td>
+                    <td>Fast rendering, component reusability, rich ecosystem.</td>
+                </tr>
+                <tr>
+                    <td>Styling</td>
+                    <td>Tailwind CSS</td>
+                    <td>Utility-first CSS for rapid, consistent, and responsive design.</td>
+                </tr>
+                <tr>
+                    <td>Backend</td>
+                    <td>Node.js + Express</td>
+                    <td>Non-blocking I/O ideal for real-time requests and API handling.</td>
+                </tr>
+                <tr>
+                    <td>Database</td>
+                    <td>MongoDB</td>
+                    <td>Flexible schema design perfect for varied product attributes.</td>
+                </tr>
+                <tr>
+                    <td>Auth</td>
+                    <td>JWT + Bcrypt</td>
+                    <td>Stateless, secure authentication standard.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="system-architecture">
+            <h2>4. System Architecture</h2>
+            <p>The application follows a modular <strong>Client-Server Architecture</strong>. The React Frontend
+                (Client) sends HTTP JSON requests to the Node.js/Express Backend (Server), which validates requests,
+                interacts with the MongoDB Database, and returns data.</p>
+
+            <h3>4.1 Component Architecture</h3>
+            <p>The frontend is built using Functional Components and React Hooks:</p>
+            <ul>
+                <li><strong>Global State:</strong> Implementing React Context API for AuthContext (User session) and
+                    CartContext (Shopping items).</li>
+                <li><strong>Routing:</strong> <code>react-router-dom</code> manages client-side routing, enabling the
+                    SPA experience.</li>
+            </ul>
+        </section>
+
+        <section id="database-design">
+            <h2>5. Database Design</h2>
+            <p>The database uses MongoDB with the following Mongoose schemas:</p>
+
+            <div class="schema-diagram">
+                <pre class="mermaid">
+erDiagram
+    USER ||--o{ ORDER : places
+    USER ||--o{ PART : manages
+    ORDER ||--|{ ORDER_ITEM : contains
+    PART ||--o{ ORDER_ITEM : "is ordered as"
+
+    USER {
+        ObjectId _id
+        String name
+        String email
+        String password
+        String role "user | admin"
+        Date createdAt
+    }
+
+    PART {
+        ObjectId _id
+        ObjectId user
+        String name
+        String brand
+        String category
+        String modelNumber
+        Number price
+        Number countInStock
+        String image
+    }
+
+    ORDER {
+        ObjectId _id
+        ObjectId user
+        Object shippingAddress
+        String paymentMethod
+        Number totalPrice
+        Boolean isPaid
+        Boolean isDelivered
+    }
+            </pre>
+            </div>
+        </section>
+
+        <section id="implementation">
+            <h2>6. Key Implementation Details</h2>
+
+            <h3>6.1 Authentication & Security</h3>
+            <ul>
+                <li><strong>Bcrypt Hashing:</strong> Passwords are salted and hashed (10 rounds) before storage.</li>
+                <li><strong>JWT Handshake:</strong> Server issues a JSON Web Token (JWT) on login, stored in
+                    localStorage.</li>
+                <li><strong>Middleware:</strong> Custom <code>protect.js</code> verifies tokens for private routes.</li>
+            </ul>
+
+            <h3>6.2 Premium UI Implementation</h3>
+            <p>The "VIP Theme" uses advanced CSS techniques:</p>
+            <ul>
+                <li><strong>Glassmorphism:</strong> <code>backdrop-filter: blur()</code> and semi-transparent
+                    backgrounds.</li>
+                <li><strong>3D Transforms:</strong> CSS perspective and transforms on hover.</li>
+                <li><strong>Interactive Gradients:</strong> Radial-gradient meshes for depth.</li>
+            </ul>
+        </section>
+
+        <section id="screenshots">
+            <h2>7. Application Screenshots</h2>
+
+            <div class="screenshot-container">
+                <h3>Homepage</h3>
+                <div class="screenshot-placeholder">
+                    <img src="./images/Homepage.PNG" alt="Homepage Screenshot"
+                        onerror="this.style.display='none'; this.parentElement.innerText='[Screenshot Placeholder: Homepage]'">
+                </div>
+                <p>The main landing page displaying featured spare parts and navigation.</p>
+            </div>
+
+            <div class="screenshot-container">
+                <h3>Product Details</h3>
+                <div class="screenshot-placeholder">
+                    <img src="./images/Product%20Details.PNG" alt="Product Detail Screenshot"
+                        onerror="this.style.display='none'; this.parentElement.innerText='[Screenshot Placeholder: Product Detail]'">
+                </div>
+                <p>Detailed view of a spare part showing specifications.</p>
+            </div>
+
+            <div class="screenshot-container">
+                <h3>Cart & Checkout</h3>
+                <div class="screenshot-placeholder">
+                    <img src="./images/Checkout.PNG" alt="Checkout Screenshot"
+                        onerror="this.style.display='none'; this.parentElement.innerText='[Screenshot Placeholder: Checkout]'">
+                </div>
+                <p>Shopping cart summary and checkout process.</p>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>8. Conclusion</h2>
+            <p>"Spare Parts Depot" successfully bridges the gap between complex automotive inventories and modern user
+                expectations. The application is stable, secure, and visually distinctive. By leveraging the MERN stack,
+                we achieved a highly cohesive architecture that is easy to maintain and scale.</p>
+        </section>
+    </div>
+
+</body>
+
+</html>
